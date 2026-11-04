@@ -6,10 +6,11 @@
   "author": "Nathan Brauner / 20107129",
   "type": "commonjs",
   "main": "index.js",
-  "scripts": {
+"scripts": {
     "start": "babel-node index.js",
     "dev": "nodemon --exec npm start"
   },
+
   "devDependencies": {
     "@babel/core": "^8.1.0",
     "@babel/eslint-parser": "^8.0.7",
