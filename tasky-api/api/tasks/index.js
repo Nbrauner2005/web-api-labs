@@ -1,5 +1,6 @@
 import express from 'express';
 import Task from './taskModel';
+import asyncHandler from 'express-async-handler';
 
 const router = express.Router(); // elsint-disable-line
 
@@ -8,10 +9,10 @@ router.get('/', async (req, res) => {
     res.status(200).json(tasks);
 });
 
-router.post('/', async (req, res) => {
+router.post('/', asyncHandler(async (req, res) => {
     const task = await Task(req.body).save();
     res.status(201).json(task);
-});
+}));
 
 router.put('/:id', async (req, res) => {
     if (req.body._id) delete req.body_id;
