@@ -15,7 +15,7 @@ router.post('/', asyncHandler(async (req, res) => {
 }));
 
 router.put('/:id', async (req, res) => {
-    if (req.body._id) delete req.body_id;
+    if (req.body._id) delete req.body._id;
     const result = await Task.updateOne({
         _id: req.params.id,
     }, req.body);
