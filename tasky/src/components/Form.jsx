@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import MenuItem from '@mui/material/MenuItem';
 
 const AddTaskForm = (props) => {
 
@@ -45,6 +46,22 @@ const AddTaskForm = (props) => {
                 rows={4}
                 onChange={(event) => props.change(event)}
                 />
+            </div>
+
+            <div>
+                <TextField
+                required
+                select
+                name="priority"
+                label="Priority"
+                defaultValue="High"
+                slotProps={{ inputLabel: { shrink: true } }}
+                onChange={(event) => props.change(event)}
+                >
+                    <MenuItem value="High">High</MenuItem>
+                    <MenuItem value="Medium">Medium</MenuItem>
+                    <MenuItem value="Low">Low</MenuItem>
+                </TextField>
             </div>
 
             <div>

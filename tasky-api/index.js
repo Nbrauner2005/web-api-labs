@@ -1,9 +1,9 @@
-
 import dotenv from 'dotenv';
 import express from 'express';
 import tasksRouter from './api/tasks';
 import './db';
 import cors from 'cors';
+import usersRouter from './api/users';
 
 dotenv.config();
 
@@ -32,6 +32,8 @@ app.use(express.json());
 
 // Task API routes
 app.use('/api/tasks', tasksRouter);
+
+app.use('/api/users', usersRouter);
 
 // Error handling middleware (must be last)
 app.use(errHandler);

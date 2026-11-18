@@ -20,12 +20,17 @@ const Task = (props) => {
 
            <Card
            sx={{
-            backgroundColor: props.done ? 'grey.200' : 'primary.light',
-            padding: '20px',
-            borderRadius: 3,
-            boxShadow: 4,
-            marginBottom: 2
-           }}
+        backgroundColor: props.done ? 'grey.200' : 'primary.light',
+        padding: '16px',
+        borderRadius: 3,
+        boxShadow: 3,
+        marginBottom: 2,
+        width: '280px',
+        minHeight: '320px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between'
+      }}
         >
 
             <CardHeader
@@ -39,25 +44,46 @@ const Task = (props) => {
             }}
         />
 
-        <Chip
-            label={props.done ? 'Completed' : 'Pending'}
-            color={props.done ? 'success' : 'warning'}
-            sx={{
-                display: 'block',
-                width: 'fit-content',
-                margin: '15px auto'
-            }}
-        />    
+       <Box
+    sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 1,
+        my: 2
+    }}
+>
+    <Chip
+        label={props.priority || 'Low'}
+        color={
+            props.priority === 'High'
+                ? 'error'
+                : props.priority === 'Medium'
+                ? 'warning'
+                : 'success'
+        }
+        size="small"
+        sx={{ fontWeight: 'bold' }}
+    />
+
+    <Chip
+        label={props.done ? 'Completed' : 'Pending'}
+        color={props.done ? 'success' : 'warning'}
+        size="small"
+        sx={{ fontWeight: 'bold' }}
+    />
+</Box>
+
 
             <CardContent>
                 <Box
                 sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'baseline',
-                    mb: 2,
-                    padding: '20px'
-                }}
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    mb: 1,
+    padding: '8px'
+}}
                 >
                  <Typography
                     component="p"
